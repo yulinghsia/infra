@@ -19,6 +19,7 @@ module "container" {
   all_domains = "${local.all_domains}"
   hosted_zone_id = "${data.aws_route53_zone.hosted_zone.zone_id}"
   acm_certificate_arn = "${aws_acm_certificate.cert.arn}"
+  acm_certificate_arn_validation = "${aws_acm_certificate_validation.cert_validation.id}"
 }
 
 module "static_content" {
@@ -27,6 +28,7 @@ module "static_content" {
   all_domains = "${local.all_domains}"
   hosted_zone_id = "${data.aws_route53_zone.hosted_zone.zone_id}"
   acm_certificate_arn = "${aws_acm_certificate.cert.arn}"
+  acm_certificate_arn_validation = "${aws_acm_certificate_validation.cert_validation.id}"
 }
 
 module "restaurant_browse_app" {
@@ -35,6 +37,7 @@ module "restaurant_browse_app" {
   all_domains = "${local.all_domains}"
   hosted_zone_id = "${data.aws_route53_zone.hosted_zone.zone_id}"
   acm_certificate_arn = "${aws_acm_certificate.cert.arn}"
+  acm_certificate_arn_validation = "${aws_acm_certificate_validation.cert_validation.id}"
 }
 
 module "restaurant_order_app" {
@@ -43,4 +46,5 @@ module "restaurant_order_app" {
   all_domains = "${local.all_domains}"
   hosted_zone_id = "${data.aws_route53_zone.hosted_zone.zone_id}"
   acm_certificate_arn = "${aws_acm_certificate.cert.arn}"
+  acm_certificate_arn_validation = "${aws_acm_certificate_validation.cert_validation.id}"
 }

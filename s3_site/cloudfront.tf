@@ -2,12 +2,15 @@ locals {
   origin_id = "s3_origin"
 }
 
+
 resource "aws_cloudfront_distribution" "cloudfront_distro" {
   aliases = ["${var.domain}"]
   comment = "Cloudfront distribution for ${var.domain}"
   default_root_object = "index.html"
   enabled = true
   is_ipv6_enabled = true
+
+  depends_on = [var.acm_certificate_arn_validation]
 
   origin {
     domain_name = "${aws_s3_bucket.site_bucket.bucket_regional_domain_name}"

@@ -17,3 +17,8 @@ variable "acm_certificate_arn" {
   type = "string"
   description = "The ARN of the ACM certificate that will front this site"
 }
+
+variable "acm_certificate_arn_validation" {
+  type = "string"
+  description = "so cloud distribution will wait for the certificate validation"
+}
